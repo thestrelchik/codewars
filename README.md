@@ -46,3 +46,20 @@ let runLengthEncoding = function(str){
 }
 ```
 *** 
+### Duplicate Encoder
+```
+ function duplicateEncode(word) {
+  return word
+    .toLowerCase() //нижний регистр
+    .split("") // разбить строку  на  массив букв
+    .map(function (a, i, word) { // создает новый массив и передоет туда результаты функции
+      if(word.indexOf(a) == word.lastIndexOf(a)) { // если текущеее в обходе значение равно последнему значению
+        return "("
+      } else {
+        return ")"
+      }
+    })
+    .join(""); //обеденить элементы в строку
+}
+
+```
