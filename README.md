@@ -63,3 +63,23 @@ let runLengthEncoding = function(str){
 }
 
 ```
+### Length of missing array
+```
+function getLengthOfMissingArray(arr) {
+  
+  if (!Array.isArray(arr) || arr.length === 0) // проверка если не массив или пустой массив
+      return 0;
+  
+  for (let i=0; i<arr.length; i++) { //проверка есть ли пустой подмасив
+    if(arr[i]===null||arr[i].length===0){return 0}
+  }
+  arr.sort((a,b) => b.length-a.length) //сортируем подмасивы по убыванию длинны 
+  
+  for (let i = 0; i < arr.length - 1; i++) { // 0 < (5-1) 
+      if (arr[i].length - arr[i + 1].length !== 1) //если текущую длинну подмасива отнять следующую длиину подмассива по убыванию +1
+      return arr[i].length - 1;
+  }
+}
+
+```
+
