@@ -82,4 +82,21 @@ function getLengthOfMissingArray(arr) {
 }
 
 ```
+### Let's Recycle!
+```
+function recycle(arr) {
+  let paper = []
+  let glass = []
+  let organic = []
+  let plastic = []
 
+  arr.forEach(typeKey => { //обходим массив и приминяем функцию для каждого элемента(объекта) массива 
+    if(typeKey.material === 'paper' || typeKey.secondMaterial === 'paper' ) paper.push(typeKey.type) //если есть такой ключ -пушим значение ключа в соответствующий массив
+    if(typeKey.material === 'glass' || typeKey.secondMaterial === 'glass') glass.push(typeKey.type)
+    if(typeKey.material === 'organic' || typeKey.secondMaterial === 'organic') organic.push(typeKey.type)
+    if(typeKey.material === 'plastic' || typeKey.secondMaterial === 'plastic') plastic.push(typeKey.type)
+  });
+  return [paper, glass, organic, plastic]
+}
+
+```
